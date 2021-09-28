@@ -7,8 +7,8 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: bc15.dev-apps.io
-    http:
+#  - host: bc15.dev-apps.io
+  - http:
       paths:
       - path: /
         pathType: Prefix 
