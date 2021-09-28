@@ -3,12 +3,12 @@ entries:
   bc15-gc:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-09-28T20:24:32.813748874+05:30"
+    created: "2021-09-28T20:43:49.155297744+05:30"
     description: A Helm chart for Kubernetes
-    digest: 177c686660f66ff0bedfd0140c67afbf92b82250962d0ca14a327ba105baac55
+    digest: db3a3cf8da16e828b9e2a9876c41b3a67985434c0a6ffce51075ce890ccfcb40
     name: bc15-gc
     type: application
     urls:
-    - https://github.com/PDhanrajnath/gc/bc15-gc-0.1.0.tgz
+    - https://pdhanrajnath.github.io/gc/bc15-gc-0.1.0.tgz
     version: 0.1.0
-generated: "2021-09-28T20:24:32.813093586+05:30"
+generated: "2021-09-28T20:43:49.153329267+05:30"
