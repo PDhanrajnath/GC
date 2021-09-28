@@ -1,0 +1,103 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: be-deploy
+  labels:
+    name: be-deploy
+    app: BC15-GC
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: be-pod
+      app: BC15-GC
+  template:
+    metadata:
+      name: be-pod
+      labels:
+        name: be-pod
+        app: BC15-GC
+    spec:
+      containers:
+        - name: be
+          image: dhanrajnath/back-end-local
+          ports:
+            - containerPort: 8080
+          env:
+            - name: "SPRING_DATASOURCE_URL"
+              value: "jdbc:postgresql://postgres:5432/jobs"
+            - name: "SPRING_DATASOURCE_USERNAME"
+              value: "postgres"
+            - name: "SPRING_DATASOURCE_PASSWORD"
+              value: "1234"
+            - name: "SPRING_JPA_HIBERNATE_DDL_AUTO"
+              value: "update"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fe-deploy
+  labels:
+    name: fe-deploy
+    app: BC15-GC
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      name: fe-pod
+      app: BC15-GC
+  template:
+    metadata:
+      name: fe-pod
+      labels:
+        name: fe-pod
+        app: BC15-GC
+    spec:
+      containers:
+        - name: fe-pod
+          image: dhanrajnath/localfe4
+          ports:
+            - containerPort: 3000
+ 
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-deploy
+  labels:
+    name: postgres-deploy
+    app: BC15-GC
+spec:
+  serviceName: postgres
+  replicas: 1
+  selector:
+    matchLabels:
+      name: postgres-pod
+      app: BC15-GC
+  template:
+    metadata:
+      name: postgres-pod
+      labels:
+        name: postgres-pod
+        app: BC15-GC
+    spec:
+      containers:
+        - name: postgres
+          image: dhanrajnath/postgres
+          ports:
+            - containerPort: 5432
+          env:
+            - name: "POSTGRES_USER"
+              value: "postgres"
+            - name: "POSTGRES_PASSWORD"
+              value: "1234" 
+            - name: "POSTGRES_DB"
+              value: "jobs"
+          volumeMounts:
+            - name: pv-data-bc15
+              mountPath: /var/lib/postgresql/bc15data
+      volumes:
+        - name: pv-data-bc15
+          persistentVolumeClaim:
+            claimName: pvc-bc15

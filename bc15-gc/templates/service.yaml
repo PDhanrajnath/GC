@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: be-service
+  labels:
+    name: be-service
+    app: BC15-GC
+spec:
+#  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+#      nodePort: 30333
+  selector:
+    name: be-pod
+    app: BC15-GC
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fe-service
+  labels:
+    name: fe-service
+    app: BC15-GC
+spec:
+#  type: NodePort
+  ports:
+    - port: 3000
+      targetPort: 3000
+#      nodePort: 30004
+  selector:
+    name: fe-pod
+    app: BC15-GC 
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  labels:
+    name: postgres-service
+    app: BC15-GC
+spec:
+  ports:
+    - port: 5432
+      targetPort: 5432
+  selector:
+    name: postgres-pod
+    app: BC15-GC 
