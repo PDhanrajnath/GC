@@ -56,7 +56,7 @@ spec:
     spec:
       containers:
         - name: fe-pod
-          image: dhanrajnath/fe_jenkins
+          image: dhanrajnath/dnsfe
           ports:
             - containerPort: 3000
  
