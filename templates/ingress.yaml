@@ -19,6 +19,28 @@ spec:
               number: 3000
    
   ingressClassName: nginx-bc
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bc15-be-ingress
+  namespace: bc15
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+  - host: bc15.dev-apps.io
+    http:
+      paths:
+      - path: /api(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: be-service
+            port:
+              number: 8080
+  ingressClassName: nginx-bc
+
 
 #apiVersion: networking.k8s.io/v1
 #kind: Ingress
