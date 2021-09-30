@@ -27,7 +27,7 @@ pipeline{
 			git 'https://github.com/PDhanrajnath/gc'
 		      }   
                         }
-                    }
+                   
                     
                 stage("Build") {
                         steps {
