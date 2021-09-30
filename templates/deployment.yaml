@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: be
-          image: dhanrajnath/be_jenkins:latest
+          image: dhanrajnath/be_jenkins
           ports:
             - containerPort: 8080
           env:
@@ -56,7 +56,7 @@ spec:
     spec:
       containers:
         - name: fe-pod
-          image: dhanrajnath/fe_jenkins:latest
+          image: dhanrajnath/fe_jenkins
           ports:
             - containerPort: 3000
  
