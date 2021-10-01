@@ -6,11 +6,11 @@ podTemplate(label: 'bc15-gc', containers: [
 ) {
 
   node('bc15-gc'){
-  	environment {
-		docker_image=""
-		// MY_KUBECONFIG = credentials('config-file')
-		MY_KUBECONFIG = credentials('config-file')
-	}
+//   	environment {
+// 		docker_image=""
+// 		// MY_KUBECONFIG = credentials('config-file')
+// 		MY_KUBECONFIG = credentials('config-file')
+// 	}
 	
 
     
@@ -18,7 +18,7 @@ podTemplate(label: 'bc15-gc', containers: [
                         git 'https://github.com/PDhanrajnath/gc'
                             container('bc15-helm'){
                                sh """
-                                  export KUBECONFIG=\${MY_KUBECONFIG}
+                                  export KUBECONFIG=\${config-file}
                                   
                                   helm upgrade --install bc15 . -n bc15                              
                                   """
