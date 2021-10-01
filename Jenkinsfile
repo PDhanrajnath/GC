@@ -23,7 +23,7 @@ pipeline{
 
 		stages{
 			
-				    stage ('Trigger Builds In Parallel') {
+	stage ('BC15GC-FE') {
         steps {
             // Freestyle build trigger calls a list of jobs
             // Pipeline build() step only calls one job
