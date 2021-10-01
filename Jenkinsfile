@@ -20,6 +20,17 @@ pipeline{
     environment {
         MY_KUBECONFIG = credentials('config-file')
     }
+	    stage ('Trigger Builds In Parallel') {
+        steps {
+            // Freestyle build trigger calls a list of jobs
+            // Pipeline build() step only calls one job
+            // To run all three jobs in parallel, we use "parallel" step
+            // https://jenkins.io/doc/pipeline/examples/#jobs-in-parallel
+		
+		    build job: 'BC15GC-FE'
+		
+        }
+    }
 		stages{
 				
                 stage('Checkout Source') {
