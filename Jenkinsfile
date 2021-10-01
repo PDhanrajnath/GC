@@ -46,13 +46,7 @@ pipeline{
                             
                         }
                     }
-              stage ('BC15GC-FE') {
-        	steps {
-		
-		    build job: 'BC15GC-FE', parameters: [string(name: 'master', value: env.BRANCH_NAME)]
-		
-        }
-    }
+ 
                     
 				
                 
