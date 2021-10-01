@@ -32,8 +32,8 @@ spec:
   - host: bc15.dev-apps.io
     http:
       paths:
-      - path: api
-        pathType: ImplementationSpecific
+      - path: api/
+        pathType: Prefix
         backend:
           service:
             name: be-service
