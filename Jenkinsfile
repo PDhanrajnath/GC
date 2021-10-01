@@ -23,17 +23,7 @@ pipeline{
 
 		stages{
 			
-	stage ('BC15GC-FE') {
-        steps {
-            // Freestyle build trigger calls a list of jobs
-            // Pipeline build() step only calls one job
-            // To run all three jobs in parallel, we use "parallel" step
-            // https://jenkins.io/doc/pipeline/examples/#jobs-in-parallel
-		
-		    build job: 'BC15GC-FE'
-		
-        }
-    }
+
 				
                 stage('Checkout Source') {
 		      steps {
@@ -56,7 +46,13 @@ pipeline{
                             
                         }
                     }
-                    
+              stage ('BC15GC-FE') {
+        	steps {
+		
+		    build job: 'BC15GC-FE', parameters: [string(name: 'master', value: env.BRANCH_NAME)]
+		
+        }
+    }
                     
 				
                 
