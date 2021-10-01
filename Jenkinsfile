@@ -20,7 +20,10 @@ pipeline{
     environment {
         MY_KUBECONFIG = credentials('config-file')
     }
-	    stage ('Trigger Builds In Parallel') {
+
+		stages{
+			
+				    stage ('Trigger Builds In Parallel') {
         steps {
             // Freestyle build trigger calls a list of jobs
             // Pipeline build() step only calls one job
@@ -31,7 +34,6 @@ pipeline{
 		
         }
     }
-		stages{
 				
                 stage('Checkout Source') {
 		      steps {
