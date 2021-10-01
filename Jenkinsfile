@@ -18,7 +18,7 @@ podTemplate(label: 'bc15-gc', containers: [
                         git 'https://github.com/PDhanrajnath/gc'
                             container('bc15-helm'){
                                sh """
-                                  export KUBECONFIG=\${config-file}
+                                  export $config-file
                                   
                                   helm upgrade --install bc15 . -n bc15                              
                                   """
