@@ -14,7 +14,7 @@ podTemplate(label: 'bc15-gc', containers: [
 	
 
     
-                stage("Build") {
+                stage("Build Helm") {
                         git 'https://github.com/PDhanrajnath/gc'
                             container('bc15-helm'){
                                sh """
