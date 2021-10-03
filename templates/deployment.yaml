@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: be
-          image: dhanrajnath/be_jenkins
+          image: dhanrajnath/back-end-local
           ports:
             - containerPort: 8080
           env:
