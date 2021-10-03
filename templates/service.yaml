@@ -37,7 +37,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgresql
+  name: postgres
   labels:
     name: postgres-service
     app: BC15-GC
