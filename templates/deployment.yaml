@@ -69,7 +69,7 @@ metadata:
     name: postgres-deploy
     app: BC15-GC
 spec:
-  serviceName: postgresql
+  serviceName: postgres
   replicas: 1
   selector:
     matchLabels:
