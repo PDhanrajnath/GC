@@ -26,7 +26,7 @@ metadata:
   name: bc15-be-ingress
   namespace: bc15
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - host: bc15.dev-apps.io
