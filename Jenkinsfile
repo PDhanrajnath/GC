@@ -14,7 +14,7 @@ podTemplate(label: 'bc15-gc', containers: [
 	
 
     
-                stage("Build Helm") {
+                stage("Helm install") {
                         git 'https://github.com/PDhanrajnath/gc'
                            container('bc15-helm'){
                                withCredentials([file(credentialsId: 'config-file', variable: 'config')]) {
