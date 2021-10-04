@@ -32,7 +32,7 @@ spec:
   - host: bc15.dev-apps.io
     http:
       paths:
-      - path: /api/
+      - path: /api(/|$)(.*)
         pathType: Prefix
         backend:
           service:
