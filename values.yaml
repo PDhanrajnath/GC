@@ -4,3 +4,6 @@
 
 replicaCount: 2
 
+fetag: latest
+betag: latest
+

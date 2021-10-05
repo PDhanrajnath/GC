@@ -12,7 +12,20 @@ podTemplate(label: 'bc15-gc', containers: [
 // 		MY_KUBECONFIG = credentials('config-file')
 // 	}
 	
-
+properties([
+            parameters([
+                string(
+                    defaultValue: 'latest',
+                    description: '', 
+                    name: 'fe_tag',
+                    trim: true),
+                string(
+                    defaultValue: 'latest',
+                    description: '', 
+                    name: 'be_tag',
+                    trim: true),
+            ])
+        ])
     
                 stage("Helm install") {
                         git 'https://github.com/PDhanrajnath/gc'
@@ -22,11 +35,12 @@ podTemplate(label: 'bc15-gc', containers: [
 
                                sh """
                                   export KUBECONFIG=\${config}
-                                  helm upgrade --install  bc15 . -n bc15                              
+                                  helm upgrade --install  bc15 . -n bc15  --set fetag=${fe_tag} --set betag=${be_tag}                            
                                   """
                         }    
                     }
                     }
+
 		
 
 		
