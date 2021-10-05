@@ -17,7 +17,7 @@ spec:
             name: fe-service
             port:
               number: 3000
-              
+
       - path: /api/
         pathType: Prefix
         backend:
@@ -26,13 +26,13 @@ spec:
             port:
               number: 8080
 
-      - path: /api/*
-        pathType: Prefix
-        backend:
-          service:
-            name: be-service
-            port:
-              number: 8080
+      # - path: /api/*
+      #   pathType: Prefix
+      #   backend:
+      #     service:
+      #       name: be-service
+      #       port:
+      #         number: 8080
 
   ingressClassName: nginx-bc
 
