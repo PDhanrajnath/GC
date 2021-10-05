@@ -22,7 +22,7 @@ spec:
         - name: be
           image: dhanrajnath/be_jenkins
           ports:
-            - containerPort: 8080
+            - containerPort: 30333
           env:
             - name: "SPRING_DATASOURCE_URL"
               value: "jdbc:postgresql://postgresql:5432/jobs"

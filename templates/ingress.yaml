@@ -38,7 +38,7 @@ spec:
           service:
             name: be-service
             port:
-              number: 8080
+              number: 30333
   ingressClassName: nginx-bc
 
 
